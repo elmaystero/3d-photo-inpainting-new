@@ -1,0 +1,12 @@
+opencv-python
+decorator
+vispy
+moviepy
+transforms3d
+networkx
+scikit-image
+pyyaml  
+pyqt5
+matplotlib
+# cynetworkx
+# cython
