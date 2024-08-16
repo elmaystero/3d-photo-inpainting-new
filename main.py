@@ -22,6 +22,9 @@ from boostmonodepth_utils import run_boostmonodepth
 from MiDaS.monodepth_net import MonoDepthNet
 import MiDaS.MiDaS_utils as MiDaS_utils
 from bilateral_filtering import sparse_bilateral_filtering
+import time
+
+start_time = time.time()
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
@@ -200,3 +203,18 @@ for idx in tqdm(range(len(sample_list))):
         all_canvas=all_canvas,
         mean_loc_depth=mean_loc_depth,
     )
+
+def convert_seconds_to_minutes_seconds(total_seconds):
+    minutes = total_seconds // 60
+    seconds = total_seconds % 60
+    return minutes, seconds
+    
+# Record the end time
+end_time = time.time()
+
+# Calculate elapsed time
+elapsed_time_seconds = end_time - start_time
+
+minutes, seconds = convert_seconds_to_minutes_seconds(elapsed_time_seconds)
+
+print(f"Elapsed Time: {minutes} minutes and {seconds:.2f} seconds")
